@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100];
+    int length, start, end;
+
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    length = strlen(str);
+    start = 0;
+    end = length - 1;
+
+    // Flag to check if the string is valid
+    int isValid = 1;
+
+    while (start <= end) {
+        if (str[start] == '0' && str[end] == '1') {
+            // Move to the next inner substring
+            start++;
+            end--;
+        } else {
+            // If it doesn't match the pattern, mark as invalid
+            isValid = 0;
+            break;
+        }
+    }
+
+    if (isValid) {
+        printf("Accepted\n");
+    } else {
+        printf("Not Accepted\n");
+    }
+
+    return 0;
+}
