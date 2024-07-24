@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100];
+    int length, state = 0;
+
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    length = strlen(str);
+
+    for (int i = 0; i < length; i++) {
+        switch (state) {
+            case 0:
+                if (str[i] == '0')
+                    state = 1;
+                else
+                    state = 3; // Dead state
+                break;
+            case 1:
+                if (str[i] == '1')
+                    state = 2;
+                else if (str[i] == '0')
+                    state = 1;
+                else
+                    state = 3; // Dead state
+                break;
+            case 2:
+                if (str[i] == '0' || str[i] == '1')
+                    state = 2;
+                else
+                    state = 3; // Dead state
+                break;
+            case 3:
+                // Remain in dead state
+                state = 3;
+                break;
+            default:
+                state = 3; // Dead state
+        }
+    }
+
+    if (state == 2) {
+        printf("Accepted\n");
+    } else {
+        printf("Not Accepted\n");
+    }
+
+    return 0;
+}
