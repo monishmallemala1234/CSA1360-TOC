@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100];
+    int length;
+
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    length = strlen(str);
+
+    // Check if the string is empty
+    if (length == 0) {
+        printf("Not Accepted\n");
+    } else {
+        // Check if the first and last characters are 'a'
+        if (str[0] == 'a' && str[length - 1] == 'a') {
+            printf("Accepted\n");
+        } else {
+            printf("Not Accepted\n");
+        }
+    }
+
+    return 0;
+}
