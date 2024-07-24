@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+int main() {
+    char str[100];
+    int length;
+    bool startedWithB = false, endsWithA = false;
+
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    length = strlen(str);
+
+    // Check if the string starts with 'b'
+    if (str[0] == 'b') {
+        startedWithB = true;
+    }
+
+    // Check if the string ends with 'a'
+    if (str[length - 1] == 'a') {
+        endsWithA = true;
+    }
+
+    // The string is accepted if it starts with 'b' and ends with 'a'
+    if (startedWithB && endsWithA) {
+        printf("Accepted\n");
+    } else {
+        printf("Not Accepted\n");
+    }
+
+    return 0;
+}
